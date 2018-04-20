@@ -58,8 +58,8 @@ int main()
         bool sphere1 = false;     // sphere1 has other points
         bool sphere2 = false;     // sphere2 has other points
 
-        Point sphereCenter1 = triangle.computeSphereCenter(4*maxR, 1);
-        Point sphereCenter2 = triangle.computeSphereCenter(4*maxR, -1);
+        Point sphereCenter1 = triangle.computeSphereCenter(maxR, 1);
+        Point sphereCenter2 = triangle.computeSphereCenter(maxR, -1);
         sphereR = (sphereCenter1 - triangle.p1_).norm();
 
         for (const Point &pt : points)

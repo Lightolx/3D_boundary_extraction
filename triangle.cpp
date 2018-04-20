@@ -35,8 +35,8 @@ void Triangle::computeCircumCenter()
     f_ = a.cross(b);   // vector f_ is orthogonal to plane p1p2p3
     f_.normalize();
 
-    // vector d is orthogonal to vector a and f, i.e., d is in plane p1p2p3 and
-    // orthogonal to vector a, i.e., its p1p2's midperpendicular
+    // vector d is orthogonal to vector a and f, i.e., d is in plane p1p2p3 and orthogonal to
+    // vector a, i.e., its p1p2's midperpendicular
     Vector d = a.cross(f_);
     Vector e = b.cross(f_);  // so is e as d
 
@@ -52,10 +52,8 @@ void Triangle::computeCircumCenter()
 
 Point Triangle::computeSphereCenter(double r, int orient) const
 {
-    // solve the equation (F + x*f - p1).norm() = r
-    // i.e., |p1F|^2 + x^2 = r^2
-    double pf = (p1_ - circumCenter_).norm();  // radius of the circum circle
-    double x = std::sqrt(pow(r, 2) - pow(pf, 2));
+    // solve the equation (F + x*f - p1).norm() = r, i.e., |p1F|^2 + x^2 = r^2
+    double x = std::sqrt(pow(r, 2) - pow(radius_, 2));
 
     return circumCenter_ + orient * x * f_;
 }

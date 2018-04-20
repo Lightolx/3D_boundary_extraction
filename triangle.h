@@ -47,36 +47,12 @@ public:
     Point p1_;
     Point p2_;
     Point p3_;
-    Point circumCenter_;
+    Point circumCenter_;     // circum center of this triangle
     float radius_;           // circumCenter radius of this triangle
     Vector f_;               // normal vector of this triangle
 
     bool isBoundary;
 };
-
-inline std::ostream &operator << (std::ostream &str, const Triangle &triangle)
-{
-    str << "Triangle : [" << triangle.p1_ << ", " << triangle.p2_
-        << ", " << triangle.p3_ << "]\n";
-
-    return str;
-}
-
-inline bool operator == (const Triangle &tri1, const Triangle &tri2)
-{
-    if (tri1.p1_ == tri2.p1_ && tri1.p2_ == tri2.p2_ && tri1.p3_ == tri2.p3_ ||
-        tri1.p1_ == tri2.p1_ && tri1.p2_ == tri2.p3_ && tri1.p3_ == tri2.p2_ ||
-        tri1.p1_ == tri2.p2_ && tri1.p2_ == tri2.p3_ && tri1.p3_ == tri2.p1_ ||
-        tri1.p1_ == tri2.p2_ && tri1.p2_ == tri2.p1_ && tri1.p3_ == tri2.p3_ ||
-        tri1.p1_ == tri2.p3_ && tri1.p2_ == tri2.p1_ && tri1.p3_ == tri2.p2_ ||
-        tri1.p1_ == tri2.p3_ && tri1.p2_ == tri2.p2_ && tri1.p3_ == tri2.p1_)
-    {
-        return true;
-    }
-
-    return false;
-}
-
 
 #endif //DELAUNAY_TRIANGULATION_TRIANGLE_H
 
